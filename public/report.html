@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.34.0/tabler-icons.min.css"
+        integrity="sha512-MsO/oEO313SeWk87bUIzVZBnm8v7BK0/02G6e1YaJd6D1/yM7+rLASTnKpnbV8Qf9mrOxVN+o5REX2ix85FyJw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="../src/js/main.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Sidebar & Overlay -->
+    <div class="flex h-screen overflow-hidden">
+         <!-- Sidebar -->
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-sm transform -translate-x-full transition-transform px-7 duration-300 flex flex-col lg:translate-x-0 lg:relative lg:z-auto">
+            <!-- Top Title -->
+            <div class="py-5 text-2xl font-bold text-gray-800 flex-center gap-3">
+                <i class="ti ti-dashboard text-black text-3xl"></i>
+                Dashboard
+            </div>
+
+            <!-- Navigation Items -->
+            <nav class="mt-3 space-y-3 flex-1">
+                <a href="#" class="sidebar-tab ">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-layout-grid text-22"></i>
+                        <p>Dashboard</p>
+                    </div>
+
+                </a>
+
+                <a href="#" class="sidebar-tab">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-package text-22"></i>
+                        <p>Product</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-22"></i>
+                </a>
+
+                <a href="#" class="sidebar-tab active">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-users text-22"></i>
+                        <p>Customers</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-22"></i>
+                </a>
+
+                <a href="#" class="sidebar-tab">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-wallet text-22"></i>
+                        <p>Income</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-22"></i>
+                </a>
+                <a href="#" class="sidebar-tab">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-file-text text-22"></i>
+                        <p>Report</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-22"></i>
+                </a>
+
+                <a href="#" class="sidebar-tab">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-message-report text-22"></i>
+                        <p>Help</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-22"></i>
+                </a>
+            </nav>
+            <!-- Bottom Buttons -->
+            <div class="flex flex-col gap-3 mb-2">
+                <button class="sidebar-tab bg-gray-light/50 text-black hover:bg-gray-light/50">
+                    <div class="flex items-center gap-2">
+                        <i class="ti ti-headphones text-22"></i>
+                        <p>Support</p>
+                    </div>
+                </button>
+                <button class="sidebar-tab text-red-light hover:bg-transparent">
+                    <div class="flex items-center gap-2">
+                        <img src="../src/assets/images/Logout.svg" alt="Logout Icon" class="w-6 h-6" />
+                        <p>Logout</p>
+                    </div>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Overlay -->
+        <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden" onclick="toggleSidebar()">
+        </div>
+
+        <!-- Main -->
+        <div class="flex flex-col flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header class="flex-center justify-between sticky top-0 z-50 p-4 bg-white shadow-sm lg:pl-5">
+                <div class="flex items-center gap-4">
+                    <button class="lg:hidden text-gray-700" onclick="toggleSidebar()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16">
+                            </path>
+                        </svg>
+                    </button>
+                    <h1 class="text-2xl font-semibold">
+                        CRM
+                    </h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Search Input with Icon -->
+                    <div class="relative hidden md:block ">
+                        <span class="absolute left-2 top-2 text-gray-light2">
+                            <i class="ti ti-search text-xl">
+                            </i>
+                        </span>
+                        <input type="text" placeholder="Search" class="search-input" />
+                    </div>
+                    <!-- Dropdown Text -->
+                    <div
+                        class="text-sm font-medium px-4 p-2 rounded-xl bg-[#FEF5EA] text-black-700 flex items-center gap-2 cursor-pointer">
+                        Nanny's Shop
+                        <i class="ti ti-chevron-down text-20">
+                        </i>
+                    </div>
+                    <!-- Notification Bell -->
+                    <div class="relative">
+                        <i class="ti ti-bell text-gray-700 text-24">
+                        </i>
+                        <span class="absolute top-1 right-0.5 h-2 w-2 rounded-full bg-primary-dark ring-1 ring-white">
+                        </span>
+                    </div>
+                    <!-- User Icon -->
+                    <div class="w-12 h-12 ">
+                        <img src="../src/assets/images/user.png" alt="" srcset="">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="p-5 md:space-y-6 space-y-4">
+                <!-- Customers Section -->
+                <section class="bg-white p-6 rounded-3xl shadow-md">
+                    <div class="flex flex-col items-center md:flex-row justify-between gap-4 mb-4">
+                        <h2 class="text-xl font-semibold">Report Parameters</h2>
+                        <div class="flex gap-2">
+                            <!-- Import Button with Cloud Icon -->
+                            <button class="btn btn-outline">
+                                <i class="ti ti-cloud-download text-22">
+                                </i></i> Export Report
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Fileds -->
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <!--  Name -->
+                        <div>
+                            <label class="input-label">
+                                Customer Name
+                            </label>
+                            <input type="text" placeholder="Your Name" class="form-input" />
+                        </div>
+
+                        <!-- state -->
+                        <div>
+                            <label class="input-label">
+                                State
+                            </label>
+                            <input type="text" placeholder="Enter your state" class="form-input" />
+                        </div>
+
+                        <!-- Date -->
+                        <div>
+                            <label class="input-label">
+                                Registration Date
+                            </label>
+                            <input type="date" placeholder="Enter your registration date" class="form-input" />
+                        </div>
+
+
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex justify-end mt-4 gap-4 font-semibold">
+                        <!-- Generate Report Button -->
+                        <button class="btn btn-primary">
+                            <i class="ti ti-file-text text-22"></i>
+                            Generate Report
+                        </button>
+
+                        <!-- Clear Button -->
+                        <button class="btn btn-outline">
+                            <i class="ti ti-trash text-22"></i>
+                            Clear
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Table -->
+                <div class="bg-white p-6 rounded-3xl shadow-md mt-6">
+                    <!-- Top Row: Heading + Search -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                        <!-- Heading -->
+                        <h2 class="text-xl font-semibold text-gray-800 w-full sm:w-auto">
+                            State-wise Registration Details
+                        </h2>
+
+                        <!-- Search Input -->
+                        <div class="relative w-full sm:w-64 ">
+                            <span class="absolute left-2 top-2 text-gray-light2">
+                                <i class="ti ti-search text-xl">
+                                </i>
+                            </span>
+                            <input type="text" placeholder="Search" class="search-input" />
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto border rounded-xl">
+                        <table class="w-full text-sm text-center break-words whitespace-normal">
+                            <thead>
+                                <tr class="text-primary-dark border bg-primary-light tracking-wide">
+                                    <th class="py-2 px-2">Customer Name</th>
+                                    <th class="py-2 px-2">State</th>
+                                    <th class="py-2 px-2">Total Registrations</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-800 font-medium">
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Jane Cooper, Floyd</td>
+                                    <td class="px-2">Gujarat</td>
+                                    <td class="px-2">02</td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Floyd Miles</td>
+                                    <td class="px-2">Maharashtra</td>
+                                    <td class="px-2">01</td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Ronald Richards, Floyd, Ronald Richards</td>
+                                    <td class="px-2">Madhya Pradesh</td>
+                                    <td class="px-2">05</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="bg-white p-6 rounded-3xl shadow-md my-6">
+                    <!-- Top Row: Heading + Search -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                        <h2 class="text-xl font-semibold text-gray-800 w-full sm:w-auto">
+                            Monthly Registration Details
+                        </h2>
+
+                        <!-- Search Input -->
+                        <div class="relative w-full sm:w-64 ">
+                            <span class="absolute left-2 top-2 text-gray-light2">
+                                <i class="ti ti-search text-xl">
+                                </i>
+                            </span>
+                            <input type="text" placeholder="Search" class="search-input" />
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto border rounded-xl">
+                        <table class="w-full text-sm text-center break-words whitespace-normal">
+                            <thead>
+                                <tr class="text-primary-dark border bg-primary-light">
+                                    <th class="py-2 px-2">Customer Name</th>
+                                    <th class="py-2 px-2">Month</th>
+                                    <th class="py-2 px-2">Total Registrations</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 font-medium">
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Jane Cooper</td>
+                                    <td class="px-2">February 2024</td>
+                                    <td class="px-2">02</td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Floyd Miles</td>
+                                    <td class="px-2">March 2024</td>
+                                    <td class="px-2">01</td>
+                                </tr>
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="py-3 px-2">Ronald Richards</td>
+                                    <td class="px-2">June 2024</td>
+                                    <td class="px-2">05</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
